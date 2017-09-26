@@ -1,0 +1,61 @@
+{
+  "SYMBOLMONEY": "R$",
+  "SIMBOLMONEYINTL": "BRL",   
+  "SALVAR": "Salvar",
+  "EXCLUIR": "Excluir",
+  "CANCELAR":"Cancelar",
+  "FECHAR": "Fechar",  
+  "CONFIRMAR": "Agendar",
+  "BUSCAR": "Buscar",  
+  "DIALOGS":{
+    "SELSTATUSTITLE": "Selecione o status",
+    "SELSTATUSMSG": "Qual o status?",
+    "SELTIMETITLE": "Selecione o horário",
+    "SELTIMEMSG": "Qual o horário?",
+    "SUCCESS": "Sucesso",    
+    "SUCCESSUPDATE": "Agendamento atualizado com sucesso!",
+    "SUCCESSDELETE": "Agendamento excluído com sucesso!",
+    "NEWCLIENTMSG": "Nome do cliente"
+  },
+  "LOGIN": {
+    "ENTRAR": "Entrar",
+    "REGISTRAR": "Registrar",
+    "VOLTAR": "Voltar",
+    "PLACEEMAIL": "Digite seu e-mail",
+    "PLACESENHA": "Digite sua senha",
+    "FBLOGIN": "Entrar com Facebook",
+    "RECSENHA": "Esqueceu sua senha?"    
+  },
+  "HOME": {
+    "AGENDA": "Agenda",
+    "GANHOS": "Ganhos",
+    "INTERESSADOS": "Interessados",
+    "CONFIRMADOS": "Confirmados",
+    "TODOS": "Todos"    
+  },
+  "CALENDARDETAIL": {
+    "TITLE": "Editar agenda",
+    "NOME": "Nome",
+    "PLACENOME": "Digite o nome",
+    "DATA": "Data",
+    "PLACEDATA":"Selecione a data",
+    "HORA": "Hora",
+    "PLACEHORA": "Selecione a hora",
+    "LOCAL": "Local",
+    "PLACELOCAL": "Digite o local",
+    "STATUS": "Status",
+    "CELULAR": "Celular",
+    "PLACECELULAR": "Digite o celular",
+    "VALOR": "Valor",
+    "PLACEVALOR": "Digite o valor",
+    "SERVICO": "Serviço",
+    "PLACESERVICO": "Descreva o serviço",
+    "INFOADICIONAL": "Informações adicionais",
+    "PLACEINFOADICIONAL": "Digite outras informações"
+  },
+  "STATUS":{
+    "CONFIRMADO": "Confirmado",
+    "CANCELADO": "Cancelado",
+    "INTERESSADO": "Interessado"
+  }
+}

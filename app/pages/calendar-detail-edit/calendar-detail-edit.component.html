@@ -1,0 +1,66 @@
+<ActionBar [title]="'CALENDARDETAIL.TITLE' | translate" icon="" class="action-bar">
+  <NavigationButton text="Go Back" icon="res://ic_arrow_back_white_36dp" (tap)="goBack()"></NavigationButton>    
+</ActionBar>
+<GridLayout rows="*" columns="*" sdkExampleTitle sdkToggleNavButton>
+  <ScrollView row="0" col="0">
+    <GridLayout rows="*" columns="*">
+      <StackLayout class="page form p-15">
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.NOME' | translate" class="label font-weight-bold m-b-5"></Label>
+          <TextField [hint]="'CALENDARDETAIL.PLACENOME' | translate" class="input" [(ngModel)]="tmpFormData.name" returnKeyType="next"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label class="label font-weight-bold m-b-5" [text]="'CALENDARDETAIL.DATA' | translate"></Label>
+          <TextField class="input" id="textFieldDate" [text]='date | date' (tap)="showDatePicker()"
+            returnKeyType="next" [hint]="'CALENDARDETAIL.PLACEDATA' | translate"></TextField>
+          <StackLayout class="hr-light"></StackLayout>            
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label class="label font-weight-bold m-b-5" [text]="'CALENDARDETAIL.HORA' | translate"></Label>
+          <TextField id="textFieldTime" class="input" (tap)="displayActionDialog()" 
+          [(ngModel)]="tmpFormData.time" returnKeyType="next" [hint]="'CALENDARDETAIL.PLACEHORA' | translate"></TextField>
+          <StackLayout class="hr-light"></StackLayout>          
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.LOCAL' | translate" class="label font-weight-bold m-b-5"></Label>
+          <TextView  [hint]="'CALENDARDETAIL.PLACELOCAL' | translate" class="input" [(ngModel)]="tmpFormData.address"></TextView >
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label class="label font-weight-bold m-b-5" [text]="'CALENDARDETAIL.STATUS' | translate"></Label>
+          <TextField id="textFieldStatus" [hint]="'CALENDARDETAIL.STATUS' | translate" class="input" (tap)="displayActionStatus()" 
+          [(ngModel)]="tmpFormData.status" returnKeyType="next"></TextField>
+          <StackLayout class="hr-light"></StackLayout>          
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.CELULAR' | translate" class="label font-weight-bold m-b-5"></Label>
+          <TextField [hint]="'CALENDARDETAIL.PLACECELULAR' | translate" class="input" [(ngModel)]="tmpFormData.cellphone" keyboardType="phone"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.VALOR' | translate" class="label font-weight-bold m-b-5"></Label>
+          <TextField [hint]="'CALENDARDETAIL.PLACEVALOR' | translate" class="input" [(ngModel)]="tmpFormData.value" keyboardType="number"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>     
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.SERVICO' | translate" class="label font-weight-bold m-b-5"></Label>
+          <TextView  [hint]="'CALENDARDETAIL.PLACESERVICO' | translate" class="input" [(ngModel)]="tmpFormData.service"></TextView >
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label [text]="'CALENDARDETAIL.INFOADICIONAL' | translate" class="label"></Label>
+          <TextView [(ngModel)]="tmpFormData.infoadd" [hint]="'CALENDARDETAIL.PLACEINFOADICIONAL' | translate" 
+          returnKeyType="send" (returnPress)="submit()" class="input"></TextView>
+          <StackLayout class="hr-light"></StackLayout>          
+        </StackLayout>
+        <Button [text]="'SALVAR' | translate" class="submit-button" (tap)="submit()"></Button>
+        <Button [text]="'EXCLUIR' | translate" (tap)="delete()"></Button>
+      </StackLayout>
+    </GridLayout>
+  </ScrollView>
+  <StackLayout backgroundColor="white" [visibility]="isItemVisible ? 'visible' : 'collapsed'" row="0" col="0">
+    <DatePicker class="m-15" id="datePicker" #dp [visibility]="isItemVisible ? 'visible' : 'collapsed'"></DatePicker>
+    <Button class="btn btn-primary btn-active" text="Selecionar data" (tap)="enterDate()" [visibility]="isButtonVisible ? 'visible' : 'collapsed'"></Button>
+  </StackLayout>
+</GridLayout>

@@ -1,0 +1,94 @@
+<ActionBar title=" Job Time" class="action-bar">
+  <ActionItem (tap)="logout()">
+    <Button text="Logout" class="action-item"></Button>
+  </ActionItem>
+</ActionBar>
+<TabView [(ngModel)]="tabSelectedIndex" class="tab-view" (selectedIndexChange)="onIndexChanged($event)" selectedColor="#FF0000"
+  iosIconRenderingMode="alwaysOriginal" sdkExampleTitle sdkToggleNavButton>
+  <StackLayout *tabItem="{title: 'HOME.AGENDA' | translate, iconSource: 'res://ic_event_note_white_24dp'}">
+    <grid-layout rows="auto, *">
+      <GridLayout rows="auto auto" columns="*" sdkExampleTitle sdkToggleNavButton row="0">
+          <SearchBar row="0" [hint]="'BUSCAR' | translate" (textChange)="onTextChange($event)" (loaded)="searchBarLoaded($event)" (submit)="onSubmit($event)"></SearchBar>
+      </GridLayout>
+      <ListView [items]="filteredNames$ | async" row="1" class="list-group">
+        <ng-template let-item="item">
+          <GridLayout class="list-group-item" rows="auto" columns="auto, *, auto" (tap)="viewDetail(item.id)">
+            <StackLayout row="0" col="0">
+              <Label [text]="item.name" (tap)="viewDetail(item.id)" class="list-group-item-heading"></Label>
+              <Label *ngIf="item.date" [text]="(item.date | date) + ((item.time) ? (' - ' + item.time) : '')" (tap)="viewDetail(item.id)" textWrap="true" class="list-group-item-text"></Label>
+            </StackLayout>
+            <StackLayout row="0" col="2">
+              <Label class="h5 p-8 m-8 text-right">
+                <FormattedString>
+                  <Span [text]="item.status" [color]="getColor(item.status)"></Span>
+                </FormattedString>
+              </Label>
+            </StackLayout>
+          </GridLayout>
+        </ng-template>
+      </ListView>
+      <FAB (tap)="fabTap()" icon="res://ic_add_white_48dp" rippleColor="#f1f1f1" class="fab-button" row="1"></FAB>
+      <ActivityIndicator row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" width="100" height="100"
+        class="activity-indicator"></ActivityIndicator>
+    </grid-layout>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'HOME.GANHOS' | translate, iconSource: 'res://ic_attach_money_white_24dp'}">
+    <grid-layout rows="auto, auto, *">
+      <StackLayout row="0" class="body m-5 w-full">
+        <GridLayout rows="auto, auto" columns="*,*" class="w-full m-2 p-8">
+          <StackLayout col="0">
+            <Label row="0" col="0" class="text-center">
+              <FormattedString>
+                <Span [text]="('HOME.INTERESSADOS' | translate)" [color]="getColor('STATUS.INTERESSADO' | translate)"></Span>
+              </FormattedString>
+            </Label>
+            <Label row="1" col="0" class="text-center ">
+              <FormattedString>
+                <Span [text]="filteredCharactersSInt$ | async | currency:('SIMBOLMONEYINTL' | translate):true" [color]="getColor('STATUS.INTERESSADO' | translate)" fontWeight="Bold"></Span>
+              </FormattedString>
+            </Label>
+          </StackLayout>
+          <StackLayout col="1">
+            <Label row="0" col="1" class="text-center">
+              <FormattedString>
+                <Span [text]="('HOME.CONFIRMADOS' | translate) + ' ' + ('SYMBOLMONEY' | translate)" [color]="getColor('STATUS.CONFIRMADO' | translate)"></Span>
+              </FormattedString>
+            </Label>
+            <Label row="1" col="1" class="text-center">
+              <FormattedString>
+                <Span [text]="filteredCharactersS$ | async | currency:('SIMBOLMONEYINTL' | translate):true" [color]="getColor('STATUS.CONFIRMADO' | translate)" fontWeight="Bold"></Span>
+              </FormattedString>
+            </Label>
+          </StackLayout>
+        </GridLayout>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+      <ScrollView orientation="horizontal" row="1">
+        <StackLayout orientation="horizontal">
+          <StackLayout *ngFor="let item of items">
+            <Button [text]="item" (tap)="getFilterMonth(item)" class="btn btn-primary btn-rounded-sm p-1"
+            ></Button>
+          </StackLayout>
+        </StackLayout>
+      </ScrollView>
+      <ListView [items]="filteredCharacters$ | async" row="2" class="list-group" >
+        <ng-template let-item="item">
+          <GridLayout class="list-group-item" rows="auto" columns="*, *" (tap)="viewDetail(item.id)">
+            <StackLayout row="0" col="0">
+              <Label [text]="item.name" class="list-group-item-heading"></Label>
+              <Label class="h5 text-left">
+                <FormattedString>
+                  <Span [text]="item.status" [color]="getColor(item.status)"></Span>
+                </FormattedString>
+              </Label>
+            </StackLayout>
+            <StackLayout row="0" col="1">
+              <Label [text]="item.value | currency:('SIMBOLMONEYINTL' | translate):true" class="list-group-item-heading text-right"></Label>
+              <Label [text]="item.date | date" class="list-group-item-text text-right"></Label>
+            </StackLayout>
+          </GridLayout>
+        </ng-template>
+      </ListView>
+    </grid-layout>
+  </StackLayout>
+</TabView>

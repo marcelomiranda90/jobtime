@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string translatable="false" name="app_name">Job Time</string>
+    <string translatable="false" name="title_activity_kimera">Job Time</string>
+    <string translatable="false" name="facebook_app_id">sua app id</string>
+</resources>

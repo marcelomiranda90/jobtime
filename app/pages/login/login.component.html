@@ -1,0 +1,30 @@
+<GridLayout rows="150, *, auto" columns="*" sdkExampleTitle sdkToggleNavButton>
+  <Image src="res://background" horizontalAlignment="center" row="0" stretch="aspectFill"></Image>
+  <ScrollView row="1">
+    <GridLayout rows="*" columns="*">
+          
+    <StackLayout class="page form p-15">
+      <StackLayout class="input-field">
+        <TextField #email [hint]="'LOGIN.PLACEEMAIL' | translate" keyboardType="email" [(ngModel)]="user.email" 
+        class="input" required autocorrect="false" autocapitalizationType="none">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>        
+      </StackLayout>
+      <StackLayout class="input-field">
+        <TextField #password required [hint]="'LOGIN.PLACESENHA' | translate" secure="true" [(ngModel)]="user.password" 
+        class="input" returnKeyType="send" (returnPress)="submit()">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>        
+      </StackLayout>   
+      <Button [text]="isLoggingIn ? ('LOGIN.ENTRAR' | translate) : ('LOGIN.REGISTRAR' | translate)" class="btn btn-active submit-button" (tap)="submit()"></Button>
+      <StackLayout class="hr-light"></StackLayout>      
+      <Button [text]="isLoggingIn ? ('LOGIN.REGISTRAR' | translate) : ('LOGIN.VOLTAR' | translate)" class="btn" (tap)="toggleDisplay()"></Button>
+      <StackLayout class="hr-light"></StackLayout>
+      <Button class="btn btn-primary btn-active btn-face" [text]="('LOGIN.FBLOGIN' | translate)" (tap)="loginFB()"></Button>
+    </StackLayout>  
+    </GridLayout>
+  </ScrollView>
+  <Button row="2" class="btn" [text]="'LOGIN.RECSENHA' | translate" (tap)="recPass()"></Button>  
+  <ActivityIndicator row="1" [busy]="isAuthenticating" [visibility]="isAuthenticating ? 'visible' : 'collapse'" width="100"
+    height="100" class="activity-indicator"></ActivityIndicator>
+</GridLayout>

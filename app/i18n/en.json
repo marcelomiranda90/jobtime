@@ -1,0 +1,61 @@
+{
+  "SYMBOLMONEY": "$", 
+  "SIMBOLMONEYINTL": "USD", 
+  "SALVAR": "Save",
+  "EXCLUIR": "Delete",
+  "CANCELAR":"Cancel",
+  "FECHAR": "Close",
+  "CONFIRMAR": "Done",  
+  "BUSCAR": "Search",
+  "DIALOGS":{
+    "SELSTATUSTITLE": "Select status",
+    "SELSTATUSMSG": "What status?",
+    "SELTIMETITLE": "Select time",
+    "SELTIMEMESSAGE": "What time?",
+    "SUCCESS": "Success",    
+    "SUCCESSUPDATE": "Timesheet updated successfully!",
+    "SUCCESSDELETE": "Deleted timesheet successfully!",
+    "NEWCLIENTMSG": "Enter customer name"    
+  },
+  "LOGIN": {
+    "ENTRAR": "Sign In",
+    "REGISTRAR": "Sign Up",
+    "VOLTAR": "Back",
+    "PLACEEMAIL": "Type your e-mail",
+    "PLACESENHA": "Type your password",
+    "FBLOGIN": "Login with Facebook",
+    "RECSENHA": "Forgot Password?"
+  },
+  "HOME": {
+    "AGENDA": "Timesheet",
+    "GANHOS": "Earnings",
+    "INTERESSADOS": "Waiting",
+    "CONFIRMADOS": "Confirmed",
+    "TODOS": "All"
+  },
+  "CALENDARDETAIL": {
+    "TITLE": "Edit Timesheet",
+    "NOME": "Name",
+    "PLACENOME": "Enter the name",
+    "DATA": "Date",
+    "PLACEDATA":"Enter date",
+    "HORA": "Time",
+    "PLACEHORA":"Enter time",    
+    "LOCAL": "Place",
+    "PLACELOCAL": "Enter location",
+    "STATUS": "Status",
+    "CELULAR": "Cell phone",
+    "PLACECELULAR": "Enter the mobile number",
+    "VALOR": "Value",
+    "PLACEVALOR": "Enter the value",
+    "SERVICO": "Job",
+    "PLACESERVICO": "Describe the job",
+    "INFOADICIONAL": "More info",
+    "PLACEINFOADICIONAL": "Enter more information"
+  },
+  "STATUS":{
+    "CONFIRMADO": "Confirmed",
+    "CANCELADO": "Canceled",
+    "INTERESSADO": "Waiting"
+  }
+}
